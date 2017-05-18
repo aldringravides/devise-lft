@@ -240,6 +240,7 @@ module Devise
             self.confirmation_token = @raw_confirmation_token = raw
             self.confirmation_sent_at = Time.now.utc
           end
+          true
         end
 
         def generate_confirmation_token!
