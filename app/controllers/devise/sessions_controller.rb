@@ -1,4 +1,7 @@
 class Devise::SessionsController < DeviseController
+  
+  respond_to [:html, :json]
+  
   prepend_before_filter :require_no_authentication, only: [:new, :create]
   prepend_before_filter :allow_params_authentication!, only: :create
   prepend_before_filter :verify_signed_out_user, only: :destroy
