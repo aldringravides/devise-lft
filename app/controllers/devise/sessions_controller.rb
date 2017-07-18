@@ -28,10 +28,10 @@ class Devise::SessionsController < DeviseController
     self.resource = warden.authenticate!(auth_options)
     set_flash_message(:notice, :signed_in) if is_flashing_format?
     sign_in(resource_name, resource)
-#     respond_with(resource) do |format|
-      render json: {status: true}, status: 200
-      render html: {redirect_url: after_sign_in_path_for(resource)}, status: 200
-#     end
+    respond_with(resource) do |format|
+      format.json {render json: {status: true}, status: 200}
+      format.html {render html: {redirect_url: after_sign_in_path_for(resource)}, status: 200}
+    end
   end
 
   # DELETE /resource/sign_out
