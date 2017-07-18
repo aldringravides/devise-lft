@@ -8,6 +8,8 @@ module Devise
         resource  = password.present? && mapping.to.find_for_database_authentication(authentication_hash)
         encrypted = false
 
+        puts "(((((((((((((#{resource.inspect}"
+        
         if validate(resource){ encrypted = true; resource.valid_password?(password) }
           remember_me(resource)
           resource.after_database_authentication
