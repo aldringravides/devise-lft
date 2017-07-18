@@ -17,6 +17,7 @@ class Devise::SessionsController < DeviseController
 
   # POST /resource/sign_in
   def create
+    puts "<<<<<<<<<<0"
     self.resource = warden.authenticate!(auth_options)
     puts "<<<<<<<<<<1"
     set_flash_message(:notice, :signed_in) if is_flashing_format?
