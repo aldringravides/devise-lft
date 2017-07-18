@@ -18,9 +18,13 @@ class Devise::SessionsController < DeviseController
   # POST /resource/sign_in
   def create
     self.resource = warden.authenticate!(auth_options)
+    puts "<<<<<<<<<<1"
     set_flash_message(:notice, :signed_in) if is_flashing_format?
+    puts "<<<<<<<<<<2"
     sign_in(resource_name, resource)
+    puts "<<<<<<<<<<3#{resource}"
     yield resource if block_given?
+    puts "<<<<<<<<<<4#{resource}"    
     respond_with resource, location: after_sign_in_path_for(resource)
   end
   
