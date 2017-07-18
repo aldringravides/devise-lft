@@ -88,7 +88,6 @@ module Devise
 
     def i18n_message(default = nil)
       message = warden_message || default || :unauthenticated
-      puts "><><>>>>><><><><><><><><><><><><><>< #{message}"
       if message.is_a?(Symbol)
         options = {}
         options[:resource_name] = scope
